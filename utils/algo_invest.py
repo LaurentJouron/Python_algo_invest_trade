@@ -70,36 +70,3 @@ def get_best_profitability(actions_list):
     for i in range(len(actions_list)):
         profitability += actions_list[i][3]
     return profitability
-
-#
-# def add_cost_and_performance_in_action_list(actions_list):
-#     """
-#     Function that calculates and adds the investment sum of a list, and the
-#     sum of the profit generated the last two years 2 years.
-#     :param:
-#         list: action_list [name, cost, profit, performance]
-#     :return:
-#         list: actions [cost_invest, profit,[name, cost, profit, performance]]
-#     """
-#     cost_invest: float = 0.0
-#     profitability: float = 0.0
-#     final_list: list = []
-#     for i in range(len(actions_list)):
-#         cost_invest += round(get_cost_invest(actions_list[i]), 2)
-#         profitability += round(get_best_profitability(actions_list[i]), 2)
-#         final_list.append([cost_invest, profitability, actions_list[i]])
-#         cost_invest = 0.0
-#         profitability = 0.0
-#     return final_list
-#
-#
-# def sort_on_cost_invest(actions):
-#     """
-#     This function sorts in descending order the sum of all the actions in a
-#     list.
-#     :param:
-#         list: actions [cost_invest, profit,[name, cost, profit, performance]]
-#     :return:
-#         list: actions [cost_invest, profit,[name, cost, profit, performance]]
-#     """
-#     return sorted(actions, key=lambda x: x[1], reverse=True)

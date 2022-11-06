@@ -54,22 +54,3 @@ Fonction:
     3 - Retourne un float (réel) de la performance de l'action en 2 ans.
 
 -------------------------------------------------------------------------------
-6 - add_cost_and_performance_in_action_list(liste_d'action):
-    1 - Cette fonction à pour but calcul et ajoute la somme du coût
-        d'investissement d'une liste, et la somme du profit généré les deux
-        dernières années 2 ans.
-
-    2 - On additionne le coût de chaque items, ainsi que les bénéfices dans 2
-        variables différentes. On ajoute ces variables dans une liste avant de
-        la retourner.
-
-    3 - On retourne une liste qui contient la somme à investir et le profit
-        généré.
-        [cost_invest, profit,[name, cost, profit, performance]]
-
--------------------------------------------------------------------------------
-7 - sort_on_cost_invest(liste_d'action):
-    1 - Fonction qui trie, de façon décroissante, la somme global des listes
-        d'actions.
-
-    2 - Elle retourne exactement la même liste mais ordonnée.

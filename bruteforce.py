@@ -61,10 +61,10 @@ def brute_force(self):
     sort_list_on_performance = sort_performance_list(performance)
     actions_lists = create_actions_lists(sort_list_on_performance)
     compare = compare_actions_list(actions_lists)
-    print(compare)
+    print(sort_list_on_performance)
 
 
 if __name__ == '__main__':
-    brute_force('action')
-    # brute_force('dataset1_Python+P7')
+    # brute_force('action')
+    brute_force('dataset1_Python+P7')
     # brute_force('dataset2_Python+P7')

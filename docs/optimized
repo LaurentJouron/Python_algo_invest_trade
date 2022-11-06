@@ -1,0 +1,64 @@
+Les variables indispensables en dehors des fonctions:
+    1 - MAX_EXPENDITURE -> int = 'valeur à définir'
+        - Le montant maximum à ne pas dépasser '500€' par exemple.
+
+-------------------------------------------------------------------------------
+1 - get_best_action_list(actions, final_list, i = 0)
+
+    Cette fonction a pour but d'analyser les meilleures possibilités,
+    de liste d'actions, tant au niveau coût, que rentabilité.
+
+-- PARAMETRES --
+    Cette fonction, prend en paramètre:
+        1 - actions: list = [actions]
+            - La liste d'actions a analysé.
+        2 - final_list: list = []
+            - Une liste vide pour stocker la liste des actions finales la plus
+            rentable.
+        3 - i: int = 0
+            - Un entier initialisé à '0' qui sera implémenté de + 1 lors de la
+              récursivité.
+
+-- VARIABLES --
+    A l'initialisation:
+    Il y a 1 'float' (réel):
+        1 - cost_invest: float = 0.0
+            - Elle permet de calculer le coût d'investissement.
+
+    Une liste temporaire vide:
+        1 - tempory_list: list = []
+            - La liste temporaire sert à stocker les items tant que le
+              montant maximum n'est pas atteint.
+
+    Un entier:
+        1 - j: int = i
+            Elle prend la même valeur que l'entier en paramètre pour éviter
+            de refaire les calculs qui ont déjà étés fait. Il y a une boucle
+            'while' et elle sera incrémentée par j += 1 à chaque tour.
+
+-- FONCTION --
+    Utilise d'une boucle 'while':
+        1 - Tant que la somme d'investissement maximum et que le nombre
+            d'éléments de la liste maximum ne sont pas atteints, il faut
+            continuer à boucler.
+
+        2 - À chaque tour, si la valeur est inférieure à la valeur maximum, on
+            ajoute l'élément à la liste temporaire.
+
+        3 - Si la valeur d'une action fait dépasser le montant maximum, on
+            retire la valeur de cet élément à la variable, et on continue la
+            boucle, sans ajouter l'action à la liste temporaire.
+
+        4 - Si la valeur est atteinte, la boucle s'arrête et on ajoute la liste
+            temporaire à la liste finale.
+
+        5 - J'obtiens dans final_list, une liste d'actions qui correspond aux
+            besoins du client, sur la valeur maximum et avec la meilleure
+            rentabilité.
+
+-- RECURSIVITE --
+    Cette fonction est récursive:
+        1 - Une fonction qui s'appelle elle-même jusqu'à ce que le résultat
+            attendu soit atteint.
+        2 - De cette façon il y a toujours la meilleure liste dans final_list
+            et c'est elle qui sera retournée comme étant la meilleure liste.
