@@ -3,5 +3,8 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/data/dataset1_Python+P7.csv" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/data/dataset2_Python+P7.csv" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/powerpoint/algo invest.pptx" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/powerpoint/brute force.pptx" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/powerpoint/optimized.pptx" charset="windows-1252" />
   </component>
 </project>

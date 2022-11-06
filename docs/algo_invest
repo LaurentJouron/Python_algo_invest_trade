@@ -1,0 +1,75 @@
+Fonction:
+-------------------------------------------------------------------------------
+1 - get_data_from_csv("nom_du_fichier"):
+    1 - Cette fonction lit les fichiers .csv, dont le nom est en paramètre.
+
+    2 - Elle transforme tous les éléments du fichier en une liste d'actions.
+
+    3 - Elle retourne la liste sans les entête:
+        [nom_des_actions, coût, pourcentage_de_profit_en_2_ans]
+
+-------------------------------------------------------------------------------
+2 - add_performance(liste_d'action):
+    1 - C'est une fonction qui utilise en paramètre la liste qui provient de
+        la fonction: 1 - get_data_from_csv
+
+    2 - Elle permet de calculer les performances de chacune des actions, avec
+        pour condition, que le pourcentage de profit et la valeur d'achat
+        soient supérieur à zéro.
+        Si float(pourcentage) > 0.0 et float(coût) > 0.0:
+        Progression = (pourcentage / 100) x coût
+
+    3 - Elle retourne la liste avec 4 items (les performances en plus).
+        [nom_des_actions, coût, pourcentage_de_profit_en_2_ans, performance]
+
+-------------------------------------------------------------------------------
+3 - sort_performance_list(liste_d'action_avec_performance):
+    1 - Cette fonction utilise les résultats de la fonction:
+        2 - add_performance
+
+    2 - Le but étant de trier, dans l'ordre décroissant, la rentabilité de
+        chaque action.
+
+    3 - Elle retourne une liste d'élément trier sur les performances:
+        [nom_de_l'action, coût, pourcentage, performance]
+
+-------------------------------------------------------------------------------
+4 - get_cost_invest(liste_d'action):
+    1 - Cette fonction calcul le coût d'investissement de la liste passée en
+        paramètre.
+
+    2 - Nous en avons besoin, car il y a un coût d'investissement maximum
+        (500€ pour l'exercice), à ne pas dépasser.
+
+    3 - Retourne un float (réel) de la valeur du coût d'investissement.
+
+-------------------------------------------------------------------------------
+5 - get_best_profitability(liste_d'action):
+    1 - Cette fonction calcul la rentabilité de la liste d'actions passées en
+        paramètre.
+
+    2 - Nous en avons besoin car nous cherchons à obtenir la liste d'action la
+        plus rentable possible en fonction de l'investissement.
+
+    3 - Retourne un float (réel) de la performance de l'action en 2 ans.
+
+-------------------------------------------------------------------------------
+6 - add_cost_and_performance_in_action_list(liste_d'action):
+    1 - Cette fonction à pour but calcul et ajoute la somme du coût
+        d'investissement d'une liste, et la somme du profit généré les deux
+        dernières années 2 ans.
+
+    2 - On additionne le coût de chaque items, ainsi que les bénéfices dans 2
+        variables différentes. On ajoute ces variables dans une liste avant de
+        la retourner.
+
+    3 - On retourne une liste qui contient la somme à investir et le profit
+        généré.
+        [cost_invest, profit,[name, cost, profit, performance]]
+
+-------------------------------------------------------------------------------
+7 - sort_on_cost_invest(liste_d'action):
+    1 - Fonction qui trie, de façon décroissante, la somme global des listes
+        d'actions.
+
+    2 - Elle retourne exactement la même liste mais ordonnée.
