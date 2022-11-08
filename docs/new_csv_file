@@ -10,12 +10,12 @@ Fonction:
 
 -------------------------------------------------------------------------------
 2 - create_csv_file(csv_name):
-    1 - C'est une fonction créer un fichier .csv, dont le nom est en paramêtre,
+    1 - C'est une fonction créer un fichier .csv, dont le nom est en paramètre,
         le transforme en une liste Python.
 
 -------------------------------------------------------------------------------
 3 - exists_csv_file(path):
-    1 - Cette fonction utilise vérifie que le fichier n'est pas déjà dans le
-        dossier data.
+    1 - Cette fonction vérifie que le nom du fichier n'est pas déjà
+        attribuer dans le dossier data.
 
 -------------------------------------------------------------------------------

@@ -1,11 +1,11 @@
-from utils.data_list import DataList
-from utils.constants import MAX_EXPENDITURE, MONTH
+from utils.data_list import DataList as DL
+from utils.constants import MAX_EXPENDITURE
 
-import numpy as np
-import matplotlib.pyplot as plt
+# import numpy as np
+# import matplotlib.pyplot as plt
 
 
-def get_best_action_list(actions, final_list=None, i: int = 0):
+def create_actions_lists(actions, final_list=None, i: int = 0):
     """
         returns an action list with the best investment and profitability.
         :param:
@@ -18,19 +18,19 @@ def get_best_action_list(actions, final_list=None, i: int = 0):
     j: int = i
     if final_list is None:
         final_list = []
-    tempory_list: list = []
+    temporary_list: list = []
     cost_invest: float = 0.0
     while cost_invest < MAX_EXPENDITURE and j < len(actions):
         cost_invest += actions[j][1]
         if cost_invest <= MAX_EXPENDITURE:
-            tempory_list.append(actions[j])
+            temporary_list.append(actions[j])
         else:
             cost_invest -= actions[j][1]
         j += 1
-    final_list.append(tempory_list)
+    final_list.append(temporary_list)
     i += 1
     if i < len(actions):
-        get_best_action_list(actions, final_list, i)
+        create_actions_lists(actions, final_list, i)
     return final_list
 
 
@@ -46,24 +46,24 @@ def compare_actions_list(action_list):
     if not final_list:
         final_list.extend(action_list[0])
     for i in range(len(action_list)):
-        final_cost: float = DataList.get_cost_invest(final_list)
-        final_profit: float = round(DataList.get_best_profitability(final_list), 2)
-        cost_action_list: float = DataList.get_cost_invest(action_list[i])
-        profit_action_list: float = round(DataList.get_best_profitability(action_list[i]), 2)
-        if final_cost < cost_action_list and final_profit < profit_action_list:
+        final_cost: float = DL.get_cost_invest(final_list)
+        final_profit: float = round(DL.get_profit(final_list), 2)
+        cost: float = DL.get_cost_invest(action_list[i])
+        profit: float = round(DL.get_profit(action_list[i]), 2)
+        if cost > final_cost and profit > final_profit:
             final_list.clear()
             final_list.extend(action_list[i])
     return final_list
 
 
 def optimized(self):
-    data_list = DataList.get_data_from_csv(self)
-    performance = DataList.add_performance(data_list)
-    sort_list_on_performance = DataList.sort_performance_list(performance)
-    best_actions_list = get_best_action_list(sort_list_on_performance)
-    compare = compare_actions_list(best_actions_list)
-    print(f"\nTotal cost: {round(DataList.get_cost_invest(compare), 2)}€")
-    print(f"Total return: {round(DataList.get_best_profitability(compare), 2)}€ \n")
+    data_list = DL.get_data_from_csv(self)
+    performance = DL.add_performance(data_list)
+    sort_list_on_performance = DL.sort_on_performance(performance)
+    actions_lists = create_actions_lists(sort_list_on_performance)
+    compare = compare_actions_list(actions_lists)
+    print(f"\nTotal cost: {round(DL.get_cost_invest(compare), 2)}€")
+    print(f"Total return: {round(DL.get_profit(compare), 2)}€ \n")
     print("Actions list:")
     for i in range(len(compare)):
         print(f" - {compare[i][0]}")

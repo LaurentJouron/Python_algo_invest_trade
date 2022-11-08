@@ -25,39 +25,25 @@ Import des bibliothèques matplotlib
 
 -- VARIABLES --
     A l'initialisation:
-    Il y a 1 'float' (réel):
-        1 - cost_invest: float = 0.0
-            - Elle permet de calculer le coût d'investissement.
 
-    Une liste temporaire vide:
-        1 - temporary_list: list = []
+    Une liste temporaire avec l'intégralité de la liste d'actions en paramètre:
+        1 - temporary_list: list = [actions]
             - La liste temporaire sert à stocker les items, tant que le
               montant maximum n'est pas atteint.
 
-    Un entier:
-        1 - j: int = i
-            Elle prend la même valeur que l'entier en paramètre pour éviter
-            de refaire les calculs qui ont déjà étés fait. Il y a une boucle
-            'while' qui sera incrémentée de j += 1 à chaque tour.
-
 -- FONCTION --
     Utilise d'une boucle 'while':
-        1 - Tant que la somme d'investissement maximum et que le nombre
-            d'éléments de la liste maximum ne sont pas atteints, la boucle
-            continue.
+        1 - Tant que la somme de la liste temporaire est supérieur maximum la
+            boucle continue.
 
-        2 - À chaque tour, si la valeur est inférieure à la valeur maximum, on
-            ajoute l'élément à la liste temporaire.
+        2 - À chaque tour, si la valeur est supérieur à la valeur maximum, on
+            supprime le dernier élément de la liste temporaire.
 
-        3 - Si la valeur d'une action fait dépasser le montant maximum, on
-            retire la valeur de l'élément à la variable, et on continue la
-            boucle, sans ajouter l'action à la liste temporaire.
-
-        4 - Si la valeur est atteinte, la boucle s'arrête et on ajoute la liste
+        3 - Si la valeur est atteinte, la boucle s'arrête et on ajoute la liste
             temporaire à la liste finale.
 
-        5 - Elle retourne dans final_list, une liste d'actions qui correspond
-            aux besoins du client.
+        4 - La fonction retourne dans final_list, une liste d'actions qui
+            correspond aux besoins du client.
 
 -- RECURSIVE --
     Cette fonction est récursive:
@@ -73,3 +59,5 @@ Import des bibliothèques matplotlib
 
      Il y a une liste de liste qu'il faut comparée les unes aux autres et
      retourner la meilleures de toutes.
+
+-------------------------------------------------------------------------------

@@ -5,7 +5,8 @@ class DataList:
     @staticmethod
     def get_data_from_csv(self):
         """
-        This function reads the .csv file, stock the items in a list and return it.
+        This function reads the .csv file, stock the items in a list and
+        return it.
         :param:
             str: csv_name
         :return:
@@ -36,11 +37,11 @@ class DataList:
         return action_list
 
     @staticmethod
-    def sort_performance_list(performance):
+    def sort_on_performance(performance):
         """
         Sorts the results of each action in descending order.
         :param:
-            list: action_list with performance [name, cost, profit, performance]
+            list: list with performance [name, cost, profit, performance]
         :return:
             list: sort_list on performance
         """
@@ -61,7 +62,7 @@ class DataList:
         return cost
 
     @staticmethod
-    def get_best_profitability(actions_list):
+    def get_profit(actions_list):
         """
         By passing a list as a parameter we obtain its best profitability
         :param:
@@ -69,7 +70,7 @@ class DataList:
         :return:
             float: profitability
         """
-        profitability: float = 0.0
+        profit: float = 0.0
         for i in range(len(actions_list)):
-            profitability += actions_list[i][3]
-        return profitability
+            profit += actions_list[i][3]
+        return profit
