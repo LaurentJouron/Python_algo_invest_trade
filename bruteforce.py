@@ -1,7 +1,8 @@
-from utils.algo_invest import get_data_from_csv, add_performance, \
-    sort_performance_list, get_cost_invest, get_best_profitability
+from utils.data_list import DataList
+from utils.constants import MAX_EXPENDITURE, MONTH
 
-MAX_EXPENDITURE: float = 500
+import numpy as np
+import matplotlib.pyplot as plt
 
 
 def create_actions_lists(actions, final_list=None, i: int = 0):
@@ -17,7 +18,7 @@ def create_actions_lists(actions, final_list=None, i: int = 0):
     if final_list is None:
         final_list = []
     tempory_list: list = actions[i:]
-    while get_cost_invest(tempory_list) > MAX_EXPENDITURE:
+    while DataList.get_cost_invest(tempory_list) > MAX_EXPENDITURE:
         tempory_list.pop()
     final_list.append(tempory_list)
     i += 1
@@ -37,12 +38,12 @@ def compare_actions_list(action_list):
     final_list: list = []
     if not final_list:
         final_list.extend(action_list[0])
-    final_cost: float = get_cost_invest(final_list)
-    final_profit: float = round(get_best_profitability(final_list), 2)
+    final_cost: float = DataList.get_cost_invest(final_list)
+    final_profit: float = round(DataList.get_best_profitability(final_list), 2)
     for i in range(len(action_list)):
-        cost_action_list: float = get_cost_invest(action_list[i])
-        profit_action_list: float = round(get_best_profitability(action_list[i]), 2)
-        if final_profit < cost_action_list or final_cost < profit_action_list:
+        cost_action_list: float = DataList.get_cost_invest(action_list[i])
+        profit_action_list: float = round(DataList.get_best_profitability(action_list[i]), 2)
+        if cost_action_list > final_profit and profit_action_list > final_cost:
             final_list.clear()
             final_list.extend(action_list[i])
     return final_list
@@ -56,15 +57,19 @@ def brute_force(self):
     :return:
         list: best solution
     """
-    action_list = get_data_from_csv(self)
-    performance = add_performance(action_list)
-    sort_list_on_performance = sort_performance_list(performance)
+    action_list = DataList.get_data_from_csv(self)
+    performance = DataList.add_performance(action_list)
+    sort_list_on_performance = DataList.sort_performance_list(performance)
     actions_lists = create_actions_lists(sort_list_on_performance)
     compare = compare_actions_list(actions_lists)
-    print(sort_list_on_performance)
+    print(f"\nTotal cost: {DataList.get_cost_invest(compare)}€")
+    print(f"Total return: {round(DataList.get_best_profitability(compare), 2)}€\n")
+    print("Actions list:")
+    for i in range(len(compare)):
+        print(f" - {compare[i][0]}")
 
 
 if __name__ == '__main__':
-    # brute_force('action')
-    brute_force('dataset1_Python+P7')
+    brute_force('action')
+    # brute_force('dataset1_Python+P7')
     # brute_force('dataset2_Python+P7')

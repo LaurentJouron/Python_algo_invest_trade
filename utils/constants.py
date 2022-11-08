@@ -1,0 +1,2 @@
+MAX_EXPENDITURE: float = 500
+MONTH: int = 24
