@@ -43,7 +43,7 @@ ___________
 ___
 
 
-<p align="center">The entire application was developed in Python .</p>
+<p align="center">The entire application was developed in Python.</p>
     
 <table>
   <tr>
@@ -56,7 +56,8 @@ ___
     </td>
   </tr>
 </table>
- 
+ <p>I developed with version 3.11, I tested it with version 3.9 and 3.10</p>
+
 ___________
 
 <h1 align="center">IDE</h1>
@@ -239,7 +240,7 @@ ___
 
 
 
-<p align="left">L'intégralité de l'application a été développer en Python .
+<p align="center">L'intégralité de l'application a été développer en Python.
 
 <table>
   <tr>
@@ -252,6 +253,8 @@ ___
     </td>
   </tr>
 </table>
+<p>J'ai développé avec la version 3.11, je l'ai testé avec la version 3.9 
+et 3.10.
 
 ___________
 
