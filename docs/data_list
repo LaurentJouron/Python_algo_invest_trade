@@ -1,5 +1,5 @@
 class DataList:
-    Toutes les fonctions sont staticmethod.
+    Toutes les fonctions sont @staticmethod.
 
 Fonction:
 -------------------------------------------------------------------------------

@@ -1,0 +1,19 @@
+class Graphic:
+    Toutes les fonctions sont @staticmethod.
+
+Fonction:
+-------------------------------------------------------------------------------
+1 - get_ordered_y(actions):
+    1 - Fonction qui récupère les ordonnées (y), d'après une liste d'actions.
+    2 - Retourne une liste de réel qui est utilisée pour les ordonnés.
+
+-------------------------------------------------------------------------------
+2 - get_abscissa_x(actions):
+    1 - Fonction qui récupère les abcisses (x), d'après une liste d'actions.
+    2 - Retourne une liste de réel qui est utilisée pour les abcisses.
+
+-------------------------------------------------------------------------------
+3 - get_graphic(x, y)
+    1 - Fonction trace un graphique selon les tableaux d'abcisses et
+        d'ordonnées, qui proviennent des fonctions 1 et 2.
+-------------------------------------------------------------------------------
