@@ -13,7 +13,7 @@ class DataList:
             list: actions_list without fieldnames [name, cost, profit]
             """
         csv_to_list: list = []
-        with open(f'data/{self}.csv', newline='') as csvfile:
+        with open(f'data/data_file/{self}.csv', newline='') as csvfile:
             actions = csv.reader(csvfile, delimiter=',')
             csv_to_list.extend(iter(actions))
             return csv_to_list[1:]
