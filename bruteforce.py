@@ -68,13 +68,12 @@ def brute_force(self):
     print(f"Total return: {round(DataList.get_profit(compare), 2)}€ \n")
     print("Actions list:")
     print(np.array(compare))
-    ordered_y = Graphic.get_ordered_y(compare)
-    abcissa_x = Graphic.get_abcissa_x(compare)
-    Graphic.get_graphic(abcissa_x, ordered_y)
+    # ordered_y = Graphic.get_ordered_y(compare)
+    # abcissa_x = Graphic.get_abcissa_x(compare)
+    # Graphic.get_graphic(abcissa_x, ordered_y)
 
 
 if __name__ == '__main__':
-    brute_force('action')
+    # brute_force('action')
     # brute_force('dataset1_Python+P7')
-    # brute_force('dataset2_Python+P7')
-
+    brute_force('dataset2_Python+P7')

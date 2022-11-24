@@ -25,11 +25,11 @@ action_list = [
 ]
 
 
-def create_csv_file(csv_name):
-    if not exists_csv_file(f'data/{csv_name}.csv'):
-        with open(f'data/{csv_name}.csv', 'w', newline='') as csvfile:
+def create_csv_file(self):
+    if not exists_csv_file(f'data/{self}.csv'):
+        with open(f'data/data_file/{self}.csv', 'w', newline='') as file:
             fieldnames = ['Action', 'Cost', 'Profit']
-            writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+            writer = csv.DictWriter(file, fieldnames=fieldnames)
             writer.writeheader()
             for information in action_list:
                 writer.writerow({'Action': information[0],

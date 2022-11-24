@@ -7,14 +7,14 @@ import numpy as np
 
 def create_actions_lists(actions, final_list=None, i: int = 0):
     """
-        returns an action list with the best investment and profitability.
-        :param:
-            list: action_list (name, cost, profit, performance)
-            list: final_list Empty list at initialization
-            int: an integer set to 0
-        :return:
-            list: action list with best on first
-        """
+    returns an action list with the best investment and profitability.
+    :param:
+        list: action_list (name, cost, profit, performance)
+        list: final_list Empty list at initialization
+        int: an integer set to 0
+    :return:
+        list: action list with best on first
+    """
     j: int = i
     if final_list is None:
         final_list = []
@@ -57,6 +57,16 @@ def compare_actions_list(action_list):
 
 
 def optimized(self):
+    """
+    Build the query according to, calling all the preamble functions create.
+    :param:
+        str: file_name (csv)
+    :return:
+        float: investment cost
+        float: profit value
+        list: best solution
+        graphic
+    """
     data_list = DataList.get_data_from_csv(self)
     performance = DataList.add_performance(data_list)
     sort_list_on_performance = DataList.sort_on_performance(performance)
@@ -66,9 +76,9 @@ def optimized(self):
     print(f"Total return: {round(DataList.get_profit(compare), 2)}€ \n")
     print("Actions list:")
     print(np.array(compare))
-    ordered_y = Graphic.get_ordered_y(compare)
-    abcissa_x = Graphic.get_abcissa_x(compare)
-    Graphic.get_graphic(abcissa_x, ordered_y)
+    # ordered_y = Graphic.get_ordered_y(compare)
+    # abcissa_x = Graphic.get_abcissa_x(compare)
+    # Graphic.get_graphic(abcissa_x, ordered_y)
 
 
 if __name__ == '__main__':
