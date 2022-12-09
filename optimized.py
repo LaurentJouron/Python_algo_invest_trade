@@ -3,7 +3,7 @@ from utils.constants import MAX_EXPENDITURE
 
 import numpy as np
 
-def create_actions_lists(actions, final_list=None, i: int = 0):
+def optimized(actions, final_list=None, i: int = 0):
     """
     returns an action list with the best investment and profitability.
     :param:
@@ -28,7 +28,7 @@ def create_actions_lists(actions, final_list=None, i: int = 0):
     final_list.append(temporary_list)
     i += 1
     if i < len(actions):
-        create_actions_lists(actions, final_list, i)
+        optimized(actions, final_list, i)
     return final_list
 
 def compare_actions_list(action_list):
@@ -52,7 +52,7 @@ def compare_actions_list(action_list):
             final_list.extend(action_list[i])
     return final_list
 
-def optimized(self):
+def run(self):
     """
     Build the query according to, calling all the preamble functions create.
     :param:
@@ -65,7 +65,7 @@ def optimized(self):
     data_list = DataList.get_data_from_csv(self)
     performance = DataList.add_performance(data_list)
     sort_list_on_performance = DataList.sort_on_performance(performance)
-    actions_lists = create_actions_lists(sort_list_on_performance)
+    actions_lists = optimized(sort_list_on_performance)
     compare = compare_actions_list(actions_lists)
     print(f"\nTotal cost: {round(DataList.get_cost_invest(compare), 2)}€")
     print(f"Total return: {round(DataList.get_profit(compare), 2)}€ \n")
@@ -73,59 +73,6 @@ def optimized(self):
     print(np.array(compare))
 
 if __name__ == '__main__':
-    optimized('action')
-    # optimized('dataset1_Python+P7')
-    # optimized('dataset2_Python+P7')
-
-
-
-# def create_actions_lists(max_invest, action_list):
-#     matrix = [[0 for _ in range(max_invest + 1)] for _ in range(len(action_list) + 1)]
-#     for i in range(len(action_list)):
-#         for j in range(1, max_invest + 1):
-#             if action_list[i-1][1] < j:
-#                 matrix[i][j] = max([action_list[i-1][1] + j-action_list[i-1][1]], matrix[i-1][j])
-#             else:
-#                 matrix[i][j] = matrix[i - 1][j]
-#
-#     # Retrouver les éléments en fonction de la somme
-#     maxi: int = max_invest
-#     n: int = len(action_list)
-#     final_list = []
-#
-#     while maxi >= 0 and n >= 0:
-#         action = action_list[n - 1]
-#         if matrix[n][maxi] == matrix[n - 1][maxi - action[1]] + action[2]:
-#             final_list.append(action)
-#             maxi -= action[1]
-#         n -= 1
-#     return matrix[-1][-1], final_list
-#
-#
-# def optimized(self):
-#     """
-#     Build the query according to, calling all the preamble functions create.
-#     :param:
-#         str: file_name (csv)
-#     :return:
-#         float: investment cost
-#         float: profit value
-#         list: best solution
-#     """
-#     data_list = DataList.get_data_from_csv(self)
-#     performance = DataList.add_performance(data_list)
-#     sort_list_on_performance = DataList.sort_on_performance(performance)
-#     actions_lists = create_actions_lists(MAX_EXPENDITURE, sort_list_on_performance)
-#     print(actions_lists)
-#     # print(f"\nTotal cost: {actions_lists[0]}€")
-#     # print(f"Total return: {round(DataList.get_profit(actions_lists[1]), 2)}€ \n")
-#     # print("Actions list:")
-#     # print(np.array(actions_lists[1]))
-#     #
-#     # print(np.array(actions_lists[2]))
-#
-#
-# if __name__ == '__main__':
-#     optimized('action')
-#     # optimized('dataset1_Python+P7')
-#     # optimized('dataset2_Python+P7')
+    run('action')
+    # run('dataset1_Python+P7')
+    # run('dataset2_Python+P7')
