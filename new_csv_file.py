@@ -24,7 +24,6 @@ action_list = [
     ('Action-20', 114, 18)
 ]
 
-
 def create_csv_file(self):
     if not exists_csv_file(f'data/{self}.csv'):
         with open(f'data/data_file/{self}.csv', 'w', newline='') as file:
@@ -36,10 +35,8 @@ def create_csv_file(self):
                                  'Cost': float(information[1]),
                                  'Profit': float(information[2])})
 
-
 def exists_csv_file(path):
     return os.path.exists(f'data/{path}')
-
 
 if __name__ == '__main__':
     create_csv_file('action')

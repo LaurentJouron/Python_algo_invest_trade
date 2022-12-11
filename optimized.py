@@ -1,7 +1,7 @@
+import numpy as np
+
 from data.data_list import DataList
 from utils.constants import MAX_EXPENDITURE
-
-import numpy as np
 
 def optimized(actions, final_list=None, i: int = 0):
     """

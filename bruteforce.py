@@ -20,7 +20,7 @@ def brute_force(cost_invest, actions, final_list=None):
     cost_invest1, cost_list1 = brute_force(cost_invest, actions[1:], final_list)
     cost = actions[0]
     if cost[1] <= cost_invest:
-        cost_invest2, cost_list2 = brute_force(cost_invest - cost[1], actions[1:], final_list + [cost])
+        cost_invest2, cost_list2 = brute_force(cost_invest - cost[1],actions[1:], final_list + [cost])
         if cost_invest1 < cost_invest2:
             return cost_invest2, cost_list2
     return cost_invest1, cost_list1
