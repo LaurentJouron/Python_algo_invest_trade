@@ -76,7 +76,7 @@ ___________
         <img width="100px"
           src="https://raw.githubusercontent.com/LaurentJouron/LaurentJouron.github.io/main/ressources/img/logo/ikigai.png" /><br />
         <sub><b>Laurent Jouron</b></sub></a><br />
-      <a href="https://github.com/LaurentJouron/Books-online" title="Application Coder">💻</a>
+      <a href="https://github.com/LaurentJouron/Python_algo_invest_trade" title="Application Coder">💻</a>
     </td>
   </tr>
 </table>
